@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>TEACHER</title>	
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="mainStyle.css">
+
+</head>
+<body onload="loadMain()">
+	<div class="grid-container">
+
+	  	<div class="item1">
+	  		<div style="font-size: 18px">
+	  			<div>
+	  				&nbsp;&nbsp;&nbsp;ระบบทะเบียนอาจารย์
+	  			</div>
+	  			<br>
+	  			<div> 
+	  				&nbsp;&nbsp;&nbsp;รหัสประจำตัว: <span id="showID"></span> 
+	  				&nbsp;&nbsp;&nbsp;ชื่อ: <span id="showName"></span> 
+	  			</div>
+	  		</div>
+	  	</div>
+
+		<div class="item2" style="text-align: center">
+			<button id="btn00" onclick="f00()">
+				ข้อมูลส่วนตัว
+			</button><br>
+			<button id="btn08" onclick="f08()">
+				ผลการเรียนรายวิชา
+			</button><br>
+			<button id="btn09">
+				ผลการเรียนรายบุคคล
+			</button><br>
+			<button id="btn10">
+				ข้อมูลรายวิชา
+			</button><br>
+			<br>
+			<button id="btn99">
+				ออกจากระบบ
+			</button>
+		</div>
+
+		<div class="item3">
+			<div style="margin: 35px">
+				<TABLE>
+					<caption id ="caption"></caption>
+					<tr>
+						<th id="r00"></th>
+						<th id="r01"></th>
+						<th id="r02"></th>
+						<th id="r03"></th>
+						<th id="r04"></th>
+						<th id="r05"></th>
+						<th id="r06"></th>
+					</tr>
+					<tr>
+						<td id="r10"></td>
+						<td id="r11"></td>
+						<td id="r12"></td>
+						<td id="r13"></td>
+						<td id="r14"></td>
+						<td id="r15"></td>
+						<td id="r16"></td>
+					</tr>
+					<tr>
+						<td id="r20"></td>
+						<td id="r21"></td>
+						<td id="r22"></td>
+						<td id="r23"></td>
+						<td id="r24"></td>
+						<td id="r25"></td>
+						<td id="r26"></td>
+					</tr>
+					<tr>
+						<td id="r30"></td>
+						<td id="r31"></td>
+						<td id="r32"></td>
+						<td id="r33"></td>
+						<td id="r34"></td>
+						<td id="r35"></td>
+						<td id="r36"></td>
+					</tr>
+					<tr>
+						<td id="r40"></td>
+						<td id="r41"></td>
+						<td id="r42"></td>
+						<td id="r43"></td>
+						<td id="r44"></td>
+						<td id="r45"></td>
+						<td id="r46"></td>
+					</tr>
+					<tr>
+						<td id="r50"></td>
+						<td id="r51"></td>
+						<td id="r52"></td>
+						<td id="r53"></td>
+						<td id="r54"></td>
+						<td id="r55"></td>
+						<td id="r56"></td>
+					</tr>
+					<tr>
+						<td id="r60"></td>
+						<td id="r61"></td>
+						<td id="r62"></td>
+						<td id="r63"></td>
+						<td id="r64"></td>
+						<td id="r65"></td>
+						<td id="r66"></td>
+					</tr>
+					<tr>
+						<td id="r70"></td>
+						<td id="r71"></td>
+						<td id="r72"></td>
+						<td id="r73"></td>
+						<td id="r74"></td>
+						<td id="r75"></td>
+						<td id="r76"></td>
+					</tr>
+					<tr>
+						<td id="r80"></td>
+						<td id="r81"></td>
+						<td id="r82"></td>
+						<td id="r83"></td>
+						<td id="r84"></td>
+						<td id="r85"></td>
+						<td id="r86"></td>
+					</tr>
+					<tr>
+						<td id="r90"></td>
+						<td id="r91"></td>
+						<td id="r92"></td>
+						<td id="r93"></td>
+						<td id="r94"></td>
+						<td id="r95"></td>
+						<td id="r96"></td>
+					</tr>
+				</TABLE>
+				<button id="btmbtn1" style="visibility: hidden"></button>
+				<button id="btmbtn2" style="visibility: hidden"></button>
+				<button id="btmbtn3" style="visibility: hidden"></button>
+			</div>
+		</div>  
+	</div>
+	<script src="get.js"></script>
+	<script src="main.js"></script>
+	<script>includeHTML();</script>
+	<script type="text/javascript">
+		//var qs = new Querystring();
+		//var loginID = qs.get("loginid");
+		var loginID = "";
+		var queryString = decodeURIComponent(window.location.search);
+		queryString = queryString.substring(1);
+		var queries = queryString.split("&");
+		loginID = queries[0];
+		if(queries[1]=="teacher") teacher=true;
+		function loadMain(){
+			fetch("http://localhost:3000/getqueryteacher/tid="+loginID)
+		    .then(function (response) {
+				console.log("return")
+				return response.json();
+			})
+			.then(function (myJson) {
+				console.log(myJson);
+				document.getElementById("showName").innerHTML = myJson[0].Ename;
+		 });
+			document.getElementById("showID").innerHTML = loginID;
+			
+		}
+	</script>
+</body>
+</html>

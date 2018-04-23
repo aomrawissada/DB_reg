@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>HOME</title>	
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="homeStyle.css">
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/bootstrap-responsive.min.css" rel="stylesheet">
+</head>
+<body style="background-color: #D8D8D8">
+	<fieldset>
+		<h1 class="title">
+			<br>
+			ยินดีต้อนรับเข้าสู่ระบบทะเบียน
+			<br>
+			<br>
+		</h1>
+	</fieldset>
+	<div>
+		<div >
+			<img src="img/01.png" alt="IMG">
+		</div>
+
+		<div id=login name="login" > 
+			<h2>
+				Login
+			</h2>
+
+			<div>
+				<input type="text" id="user" name="username" placeholder="Username" required>
+			</div>
+			<div>
+				<input type="password" id="pass" name="password" placeholder="Password" required>
+			</div>
+			<br>
+			<div>
+				<button id="sLoginBtn" onclick="loginS()">
+					Login as Student 
+				</button>
+				<button id="tLoginBtn" onclick="loginT()">
+					Login as Teacher
+				</button>
+			</div>
+			<p id="demo"></p>
+		</div>
+	</div>
+	
+	<!--script src="js/jquery.js"> </script-->
+	<!--script src="js/bootstrap.min.js"></script-->
+	<script src="get.js"></script>
+	<script src="main.js"></script>
+	<script type="text/javascript">
+		function loginS(){
+			if(document.getElementById("user").value == "5830000021" && document.getElementById("pass").value =="notAPassword"){
+				console.log("S Login");
+				loginStatus = true;
+				var userid = document.getElementById("user").value;
+				window.location.href="main_student.html?"+userid+"&student";
+			}else{
+				alert("Invalid Username or Password");
+				console.log("S Invalid");
+			}
+		}
+		function loginT(){
+			if(document.getElementById("user").value == "1111111111" && document.getElementById("pass").value =="password"){
+				console.log("T login");
+				loginStatus = true;
+				teacher = true;
+				var userid = document.getElementById("user").value;
+				window.location.href = "main_teacher.html?"+userid+"&teacher";
+			}else{
+				alert("Invalid Username or Password");
+				console.log("T Invalid");
+			}
+		}
+	</script>
+</body>
+</html>
