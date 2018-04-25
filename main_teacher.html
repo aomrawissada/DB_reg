@@ -32,11 +32,11 @@
 			<button id="btn09">
 				ผลการเรียนรายบุคคล
 			</button><br>
-			<button id="btn10">
+			<button id="btn10" onclick="f10()">
 				ข้อมูลรายวิชา
 			</button><br>
 			<br>
-			<button id="btn99">
+			<button id="btn99" onclick="f99()">
 				ออกจากระบบ
 			</button>
 		</div>
@@ -162,7 +162,7 @@
 			})
 			.then(function (myJson) {
 				console.log(myJson);
-				document.getElementById("showName").innerHTML = myJson[0].Ename;
+				document.getElementById("showName").innerHTML = myJson[0].Name +" "+ myJson[0].Surname;
 		 });
 			document.getElementById("showID").innerHTML = loginID;
 			

@@ -52,6 +52,54 @@
 	<script src="get.js"></script>
 	<script src="main.js"></script>
 	<script type="text/javascript">
+		//var s_pass;
+		function loginS(){
+			fetch("http://localhost:3000/getAllstudent")
+		    .then(function (response) {
+				console.log("return")
+				return response.json();
+			})
+			.then(function (myJson) {
+				for(i=0;i<myJson.length;i++){
+					if(document.getElementById("user").value == myJson[i].SID && document.getElementById("pass").value == myJson[i].Password){
+						console.log("S Login");
+						loginStatus = true;
+						var userid = document.getElementById("user").value;
+						window.location.href="main_student.html?"+userid+"&student";
+						break;
+					}
+				}
+				if(i>=myJson.length) {
+					alert("Invalid Username or Password");
+					console.log("S Invalid");
+				}
+			});
+		}
+		
+		function loginT(){
+			fetch("http://localhost:3000/getAllteacher")
+		    .then(function (response) {
+				console.log("return")
+				return response.json();
+			})
+			.then(function (myJson) {
+				for(i=0;i<myJson.length;i++){
+					if(document.getElementById("user").value == myJson[i].TID && document.getElementById("pass").value == myJson[i].Password){
+						console.log("T Login");
+						loginStatus = true;
+						teacher = true;
+						var userid = document.getElementById("user").value;
+						window.location.href="main_teacher.html?"+userid+"&teacher";
+						break;
+					}
+				}
+				if(i>=myJson.length) {
+					alert("Invalid Username or Password");
+					console.log("T Invalid");
+				}
+			});
+		}
+		/*
 		function loginS(){
 			if(document.getElementById("user").value == "5830000021" && document.getElementById("pass").value =="notAPassword"){
 				console.log("S Login");
@@ -75,6 +123,7 @@
 				console.log("T Invalid");
 			}
 		}
+		*/
 	</script>
 </body>
 </html>
