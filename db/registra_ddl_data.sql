@@ -139,3 +139,6 @@ insert into Use_Room(CID, Semester, SecNum, BldCode, RoomNum, Day, StartTime, En
 values ('2110422', '2/2017', '1', 'EN100', '405', 'MON', '0800', '0900');
 insert into Use_Room(CID, Semester, SecNum, BldCode, RoomNum, Day, StartTime, EndTime)
 values ('2110422', '2/2017', '2', 'EN100', '405', 'TUE', '0800', '0900');
+
+update Grade set Grade = 3.50
+where SID = '5830000021' and CID = '2110422' and Semester = '2/2017';
