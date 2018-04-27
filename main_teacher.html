@@ -29,14 +29,17 @@
 			<button id="btn08" onclick="f08()">
 				ผลการเรียนรายวิชา
 			</button><br>
-			<button id="btn09">
+			<button id="btn09" onclick="f09()">
 				ผลการเรียนรายบุคคล
 			</button><br>
-			<button id="btn10">
+			<button id="btn10" onclick="f10()">
 				ข้อมูลรายวิชา
 			</button><br>
+			<button id="btn11" onclick="f11()">
+				แก้ไขผลการเรียน
+			</button><br>
 			<br>
-			<button id="btn99">
+			<button id="btn99" onclick="f99()">
 				ออกจากระบบ
 			</button>
 		</div>
@@ -136,9 +139,15 @@
 						<td id="r96"></td>
 					</tr>
 				</TABLE>
+				<input type="text" id="studentID" style="visibility: hidden" name="studentID" placeholder="please input studentID">
+				<input type="text" id="courseID" style="visibility: hidden" name="courseID" placeholder="please input courseID">
+				<input type="text" id="semes" style="visibility: hidden" name="semes" placeholder="please input semester">
+				<input type="text" id="newgrade" style="visibility: hidden" name="newgrade" placeholder="please input grade">
 				<button id="btmbtn1" style="visibility: hidden"></button>
 				<button id="btmbtn2" style="visibility: hidden"></button>
 				<button id="btmbtn3" style="visibility: hidden"></button>
+				<button id="btmbtn4" style="visibility: hidden" onclick="f09_1()"></button>
+				<button id="btmbtn5" style="visibility: hidden" onclick="f11_1()"></button>
 			</div>
 		</div>  
 	</div>
@@ -162,7 +171,7 @@
 			})
 			.then(function (myJson) {
 				console.log(myJson);
-				document.getElementById("showName").innerHTML = myJson[0].Ename;
+				document.getElementById("showName").innerHTML = myJson[0].Name +" "+ myJson[0].Surname;
 		 });
 			document.getElementById("showID").innerHTML = loginID;
 			
