@@ -14,6 +14,7 @@ app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   next();
 });
+
 app.get('/getQuery*/:query', function (req, res) {
     pool.getConnection(function (err, con) {
         if (err) throw err;
@@ -34,10 +35,92 @@ app.get('/updateGrade/:csid/:ccid/:semes1/:semes2/:cgrade', function (req, res) 
         if (err) throw err;
         const csid = req.params.csid;
 		const ccid = req.params.ccid;
-		const semes1 = req.params.semes1;
-		const semes2 = req.params.semes2;
+		//const semes1 = req.params.semes1;
+		//const semes2 = req.params.semes2;
+		const semes = "'"+req.params.semes1+"/"+req.params.semes2+"'";
         const cgrade = req.params.cgrade;
-        con.query("UPDATE grade SET grade.Grade=" + cgrade + " WHERE grade.SID=" + csid + " AND grade.CID="+ccid+ " AND grade.Semester="+semes1+"//"+semes2, function (err, result, fields) {
+        con.query("UPDATE grade SET grade.Grade=" + cgrade + " WHERE grade.SID=" + csid + " AND grade.CID="+ccid+ " AND grade.Semester="+semes, function (err, result, fields) {
+            con.release();
+
+            if (err) throw err;
+            res.send(result);
+            res.end();
+        });
+    });
+})
+
+app.get('/removeClass/:csid/:ccid/:semes1/:semes2', function (req, res) {
+    pool.getConnection(function (err, con) {
+        if (err) throw err;
+        const csid = req.params.csid;
+		const ccid = req.params.ccid;
+		const semes = "'"+req.params.semes1+"/"+req.params.semes2+"'";
+		con.query("DELETE FROM grade WHERE grade.SID=" + csid + " AND grade.CID="+ccid+ " AND grade.Semester="+semes, function (err, result, fields) {
+            con.release();
+
+            if (err) throw err;
+            res.send(result);
+            res.end();
+        });
+    });
+})
+
+app.get('/withdraw1/:csid/:ccid/:semes1/:semes2', function (req, res) {
+    pool.getConnection(function (err, con) {
+        if (err) throw err;
+        const csid = req.params.csid;
+		const ccid = req.params.ccid;
+		const semes = "'"+req.params.semes1+"/"+req.params.semes2+"'";
+        con.query("UPDATE grade SET grade.WFlag=1 WHERE grade.SID=" + csid + " AND grade.CID="+ccid+ " AND grade.Semester="+semes, function (err, result, fields) {
+            con.release();
+
+            if (err) throw err;
+            res.send(result);
+            res.end();
+        });
+    });
+})
+
+app.get('/withdraw2/:csid/:ccid/:semes1/:semes2', function (req, res) {
+    pool.getConnection(function (err, con) {
+        if (err) throw err;
+        const csid = req.params.csid;
+		const ccid = req.params.ccid;
+		const semes = "'"+req.params.semes1+"/"+req.params.semes2+"'";
+		con.query("DELETE FROM enroll WHERE enroll.SID=" + csid + " AND enroll.CID="+ccid+ " AND enroll.Semester="+semes, function (err, result, fields) {
+            con.release();
+
+            if (err) throw err;
+            res.send(result);
+            res.end();
+        });
+    });
+})
+
+app.get('/addClass1/:csid/:ccid/:semes1/:semes2/:sect', function (req, res) {
+    pool.getConnection(function (err, con) {
+        if (err) throw err;
+        const csid = req.params.csid;
+		const ccid = req.params.ccid;
+		const semes = "'"+req.params.semes1+"/"+req.params.semes2+"'";
+		const sect = req.params.sect;
+        con.query("INSERT INTO enroll VALUES (" + csid + ", "+ccid+ ", "+semes+", "+sect+");", function (err, result, fields) {
+            con.release();
+
+            if (err) throw err;
+            res.send(result);
+            res.end();
+        });
+    });
+})
+app.get('/addClass2/:csid/:ccid/:semes1/:semes2/:sect', function (req, res) {
+    pool.getConnection(function (err, con) {
+        if (err) throw err;
+        const csid = req.params.csid;
+		const ccid = req.params.ccid;
+		const semes = "'"+req.params.semes1+"/"+req.params.semes2+"'";
+		const sect = req.params.sect;
+        con.query("INSERT INTO grade VALUES (" + csid + ", "+ccid+ ", "+semes+", 5, false);", function (err, result, fields) {
             con.release();
 
             if (err) throw err;

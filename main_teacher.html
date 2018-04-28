@@ -23,23 +23,19 @@
 	  	</div>
 
 		<div class="item2" style="text-align: center">
-			<button id="btn00" onclick="f00()">
+			<button class="button2" id="btn00" onclick="f00()">
 				ข้อมูลส่วนตัว
 			</button><br>
-			<button id="btn08" onclick="f08()">
+			<button class="button2" id="btn08" onclick="f08()">
 				ผลการเรียนรายวิชา
 			</button><br>
-			<button id="btn09" onclick="f09()">
+			<button class="button2" id="btn09" onclick="f09()">
 				ผลการเรียนรายบุคคล
 			</button><br>
-			<button id="btn10" onclick="f10()">
+			<button class="button2" id="btn10" onclick="f10()">
 				ข้อมูลรายวิชา
-			</button><br>
-			<button id="btn11" onclick="f11()">
-				แก้ไขผลการเรียน
-			</button><br>
-			<br>
-			<button id="btn99" onclick="f99()">
+			</button><br><br><br><br>
+			<button class="button2" id="btn99" onclick="f99()">
 				ออกจากระบบ
 			</button>
 		</div>
@@ -139,17 +135,27 @@
 						<td id="r96"></td>
 					</tr>
 				</TABLE>
-				<input type="text" id="studentID" style="visibility: hidden" name="studentID" placeholder="please input studentID">
+				
+				<input type="text" id="grade1" style="visibility: hidden" name="grade1" placeholder="new grade">
+				<input type="text" id="grade2" style="visibility: hidden" name="grade2" placeholder="new grade">
+				<input type="text" id="grade3" style="visibility: hidden" name="grade3" placeholder="new grade">
+				<input type="text" id="grade2" style="visibility: hidden" name="grade2" placeholder="new grade">
+				
+				<input type="text" id="studentID" style="visibility: hidden" name="studentID" placeholder="new grade">
 				<input type="text" id="courseID" style="visibility: hidden" name="courseID" placeholder="please input courseID">
 				<input type="text" id="semes" style="visibility: hidden" name="semes" placeholder="please input semester">
 				<input type="text" id="newgrade" style="visibility: hidden" name="newgrade" placeholder="please input grade">
-				<button id="btmbtn1" style="visibility: hidden"></button>
-				<button id="btmbtn2" style="visibility: hidden"></button>
-				<button id="btmbtn3" style="visibility: hidden"></button>
-				<button id="btmbtn4" style="visibility: hidden" onclick="f09_1()"></button>
-				<button id="btmbtn5" style="visibility: hidden" onclick="f11_1()"></button>
+				<button id="btmbtn1" class="button2" style="visibility: hidden"></button>
+				<button id="btmbtn2" class="button2" style="visibility: hidden"></button>
+				<button id="btmbtn3" class="button2" style="visibility: hidden"></button>
+				<button id="btmbtn4" class="button2" style="visibility: hidden" onclick="f09_1()"></button>
+				<button id="btmbtn5" class="button2" style="visibility: hidden" onclick="f11_1()"></button>
+				<button id="btmbtn6" class="button2" style="visibility: hidden" onclick="f11()"></button>
+				<button id="btmbtn7" class="button2" style="visibility: hidden"></button>
+				<button id="btmbtn8" class="button2" style="visibility: hidden"></button>
 			</div>
 		</div>  
+		
 	</div>
 	<script src="get.js"></script>
 	<script src="main.js"></script>

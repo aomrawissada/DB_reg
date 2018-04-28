@@ -68,6 +68,7 @@ create table Student (
 	constraint std_fk_department foreign key (FID, DID)
 	references Department(FID, DID) on delete set null
 ) engine=InnoDB default charset=utf8;
+create index std_advisor_index on Student(AdvisorTID);
 
 drop table if exists Receipt;
 create table Receipt (
@@ -154,6 +155,7 @@ create table Course (
 	constraint c_fk_room foreign key (BldCode, RoomNum)
 	references Room(BldCode, RoomNum) on update cascade on delete set null
 ) engine=InnoDB default charset=utf8;
+create index coursename_index on Course(CID, Semester, CName);
 
 drop table if exists Section;
 create table Section (
@@ -177,6 +179,12 @@ create table Enroll (
 	constraint enroll_fk_sec foreign key (CID, Semester, SecNum)
 	references Section(CID, Semester, SecNum) on delete cascade
 ) engine=InnoDB default charset=utf8;
+
+create trigger ins_grade_trigger after insert on Enroll
+	for each row
+    insert into Grade(SID, CID, Semester, Grade, WFlag)
+	values (new.SID, new.CID, new.Semester, null, false);
+
 
 drop table if exists Teach;
 create table Teach (

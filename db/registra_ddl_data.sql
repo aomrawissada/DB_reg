@@ -1,3 +1,5 @@
+use registra;
+
 insert into Faculty(FID, FName)
 values ('21', 'Faculty of Engineering');
 insert into Faculty(FID, FName)
@@ -66,11 +68,11 @@ insert into Receipt(ReceiptNum, PayDate, PrintStatus)
 values ('111111111111', '2017-03-12', true);
 
 insert into Tuition(SID, Semester, ReceiptNum, Amount, Status)
-values ('5830000021', '2/2016', '999999999999', 21000, true);
+values ('5830000021', '2/2017', '999999999999', 21000, true);
 insert into Tuition(SID, Semester, ReceiptNum, Amount, Status)
-values ('5931111121', '2/2016', '111111111111', 21000, true);
+values ('5931111121', '2/2017', '111111111111', 21000, true);
 insert into Tuition(SID, Semester, ReceiptNum, Amount, Status)
-values ('5830000021', '1/2016', null, 21000, false);
+values ('5830000021', '1/2017', null, 21000, false);
 
 insert into S_Document(SID, DocID)
 values ('5830000021', 'CR00');
@@ -101,42 +103,42 @@ values ('EN100', '406', 'Classroom', true);
 
 insert into Course(CID, Semester, CName, Description, Credit,
 BldCode, RoomNum, Date, StartTime, EndTime)
-values ('2110422', '2/2016', 'Database Management Systems Design',
+values ('2110422', '2/2017', 'Database Management Systems Design',
 'placeholder', 3.0, 'EN100', '405', '2007-05-11', '0830', '1130');
 insert into Course(CID, Semester, CName, Credit)
-values ('2110332', '2/2016', 'Systems Analysis and Design',
+values ('2110332', '2/2017', 'Systems Analysis and Design',
 3.0);
 
 insert into Section(CID, Semester, SecNum)
-values ('2110422', '2/2016', '1');
+values ('2110422', '2/2017', '1');
 insert into Section(CID, Semester, SecNum)
-values ('2110422', '2/2016', '2');
+values ('2110422', '2/2017', '2');
 insert into Section(CID, Semester, SecNum)
-values ('2110332', '2/2016', '1');
+values ('2110332', '2/2017', '1');
 insert into Section(CID, Semester, SecNum)
-values ('2110332', '2/2016', '2');
+values ('2110332', '2/2017', '2');
 
 insert into Enroll(SID, CID, Semester, SecNum)
-values ('5830000021', '2110422', '2/2016', '1');
+values ('5830000021', '2110422', '2/2017', '1');
 insert into Enroll(SID, CID, Semester, SecNum)
-values ('5830000021', '2110332', '2/2016', '2');
+values ('5830000021', '2110332', '2/2017', '2');
+insert into Enroll(SID, CID, Semester, SecNum)
+values ('5931111121', '2110422', '2/2017', '1');
 
 insert into Teach(TID, CID, Semester, SecNum)
-values ('1111111111', '2110422', '2/2016', '2');
+values ('1111111111', '2110422', '2/2017', '2');
 insert into Teach(TID, CID, Semester, SecNum)
-values ('1111111111', '2110332', '2/2016', '2');
+values ('1111111111', '2110332', '2/2017', '2');
 
 insert into PRequire(CID, Semester, PFID, PDID, Pname, Year)
-values ('2110422', '2/2016', '21', '10', 'Bachelor of Engineering (Computer Engineering)', '2010');
+values ('2110422', '2/2017', '21', '10', 'Bachelor of Engineering (Computer Engineering)', '2010');
 insert into PRequire(CID, Semester, PFID, PDID, Pname, Year)
-values ('2110332', '2/2016', '21', '10', 'Bachelor of Engineering (Computer Engineering)', '2010');
-
-insert into Grade(SID, CID, Semester, Grade, WFlag)
-values ('5830000021', '2110422', '2/2016', 3.5, false);
-insert into Grade(SID, CID, Semester, Grade, WFlag)
-values ('5830000021', '2110332', '2/2016', 3.0, false);
+values ('2110332', '2/2017', '21', '10', 'Bachelor of Engineering (Computer Engineering)', '2010');
 
 insert into Use_Room(CID, Semester, SecNum, BldCode, RoomNum, Day, StartTime, EndTime)
-values ('2110422', '2/2016', '1', 'EN100', '405', 'MON', '0800', '0900');
+values ('2110422', '2/2017', '1', 'EN100', '405', 'MON', '0800', '0900');
 insert into Use_Room(CID, Semester, SecNum, BldCode, RoomNum, Day, StartTime, EndTime)
-values ('2110422', '2/2016', '2', 'EN100', '405', 'TUE', '0800', '0900');
+values ('2110422', '2/2017', '2', 'EN100', '405', 'TUE', '0800', '0900');
+
+update Grade set Grade = 3.50
+where SID = '5830000021' and CID = '2110422' and Semester = '2/2017';

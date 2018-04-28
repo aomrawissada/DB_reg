@@ -19,7 +19,7 @@
     font-size: 30px;
 }
 
-button {
+button.button2 {
     background-color: #424242;
     color: white;
     height: 50px;
@@ -31,4 +31,37 @@ button {
     font-size: 16px;
     border-color: white;
     border-width: 1px;
+}
+
+button.button1 {
+	background-color: pink;
+    color: black;
+    height: 70px;
+    width: 180px;
+    /*padding: 15px 32px;*/
+    text-align: center;
+    text-decoration: none;
+    /*display: inline-block;*/
+    font-size: 16px;
+    border-color: white;
+    border-width: 1px;
+	border: 0;
+    background: none;
+    box-shadow: none;
+    border-radius: 0px;
+}
+
+text.textgrade {
+    height: 50px;
+    width: 200px;
+}
+
+TABLE.item4 {
+	table-layout:fixed;
+    width:1000px;
+	height:500px;
+	max-width:1000px;
+	max-height:500px;
+    overflow:hidden;
+    word-wrap:break-word;
 }
