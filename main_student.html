@@ -23,32 +23,35 @@
 	  	</div>
 
 		<div class="item2" style="text-align: center">
-			<button id="btn01" onclick="f01()">
+			<button id="btn01" class="button2" onclick="f01()">
 				ข้อมูลส่วนตัว
 			</button><br>
-			<button id="btn02" onclick="f02()">
+			<button id="btn02" class="button2" onclick="f02()">
 				ผลการศึกษา
 			</button><br>
-			<button id="btn03" onclick="f03()">
+			<button id="btn03" class="button2" onclick="f03()">
 				ค่าเล่าเรียน
 			</button><br>
-			<button id="btn04" onclick="f04()">
+			<button id="btn04" class="button2" onclick="f04()">
 				ตารางสอน
 			</button><br>
-			<button id="btn05" onclick="f05()">
+			<button id="btn05" class="button2" onclick="f05()">
 				ตารางสอบ
 			</button><br>
-			<button id="btn06" onclick="f06()">
-				ลงทะเบียน
+			<button id="btn07" class="button2" onclick="f_addClass()">
+				ลงทะเบียน/ เพิ่มรายวิชา
 			</button><br>
-			<button id="btn07" onclick="f07()">
-				เพิ่ม/ลด ถอน
+			<button id="btn11" class="button2" onclick="f_remove()">
+				ลดรายวิชา
 			</button><br>
-			<button id="btn10" onclick="f10()">
+			<button id="btn08" class="button2" onclick="f_withdraw()">
+				ถอนรายวิชา
+			</button><br>
+			<button id="btn10" class="button2" onclick="f10()">
 				ข้อมูลรายวิชา
 			</button><br>
 			<br>
-			<button id="btn99" onclick="f99()">
+			<button id="btn99" class="button2" onclick="f99()">
 				ออกจากระบบ
 			</button>
 		</div>
@@ -148,9 +151,23 @@
 						<td id="r96"></td>
 					</tr>
 				</TABLE>
-				<button id="btmbtn1" style="visibility: hidden"></button>
-				<button id="btmbtn2" style="visibility: hidden"></button>
-				<button id="btmbtn3" style="visibility: hidden"></button>
+				<input type="text" id="grade1" style="visibility: hidden" name="grade1" placeholder="new grade">
+				<input type="text" id="grade2" style="visibility: hidden" name="grade2" placeholder="new grade">
+				<input type="text" id="grade3" style="visibility: hidden" name="grade3" placeholder="new grade">
+				<input type="text" id="grade2" style="visibility: hidden" name="grade2" placeholder="new grade">
+				
+				<input type="text" id="studentID" style="visibility: hidden" name="studentID" placeholder="new grade">
+				<input type="text" id="courseID" style="visibility: hidden" name="courseID" placeholder="please input courseID">
+				<input type="text" id="semes" style="visibility: hidden" name="semes" placeholder="please input semester">
+				<input type="text" id="newgrade" style="visibility: hidden" name="newgrade" placeholder="please input grade">
+				<button id="btmbtn1" class="button2" style="visibility: hidden"></button>
+				<button id="btmbtn2" class="button2" style="visibility: hidden"></button>
+				<button id="btmbtn3" class="button2" style="visibility: hidden"></button>
+				<button id="btmbtn4" class="button2" style="visibility: hidden" onclick="f09_1()"></button>
+				<button id="btmbtn5" class="button2" style="visibility: hidden" onclick="f11_1()"></button>
+				<button id="btmbtn6" class="button2" style="visibility: hidden" onclick="f11()"></button>
+				<button id="btmbtn7" class="button2" style="visibility: hidden"></button>
+				<button id="btmbtn8" class="button2" style="visibility: hidden"></button>
 			</div>
 		</div>  
 	</div>
