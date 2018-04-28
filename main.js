@@ -54,6 +54,7 @@ fetch(url)
 			for(j=0;j<=6;j++) {
 				document.getElementById("r"+i+j).innerHTML = ""; 
 				document.getElementById("r"+i+j).style.backgroundColor = null;
+				document.getElementById("r"+i+j).onclick = "";
 			}
 		}
 		document.getElementById("caption").innerHTML = "";
