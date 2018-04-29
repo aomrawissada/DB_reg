@@ -104,7 +104,7 @@ values ('EN100', '406', 'Classroom', true);
 insert into Course(CID, Semester, CName, Description, Credit,
 BldCode, RoomNum, Date, StartTime, EndTime)
 values ('2110422', '2/2017', 'Database Management Systems Design',
-'placeholder', 3.0, 'EN100', '405', '2007-05-11', '0830', '1130');
+'placeholder', 3.0, 'EN100', '405', '2007-05-11', '08:30:00', '11:30:00');
 insert into Course(CID, Semester, CName, Credit)
 values ('2110332', '2/2017', 'Systems Analysis and Design',
 3.0);
@@ -136,9 +136,9 @@ insert into PRequire(CID, Semester, PFID, PDID, Pname, Year)
 values ('2110332', '2/2017', '21', '10', 'Bachelor of Engineering (Computer Engineering)', '2010');
 
 insert into Use_Room(CID, Semester, SecNum, BldCode, RoomNum, Day, StartTime, EndTime)
-values ('2110422', '2/2017', '1', 'EN100', '405', 'MON', '0800', '0900');
+values ('2110422', '2/2017', '1', 'EN100', '405', 'MON', '08:00:00', '09:00:00');
 insert into Use_Room(CID, Semester, SecNum, BldCode, RoomNum, Day, StartTime, EndTime)
-values ('2110422', '2/2017', '2', 'EN100', '405', 'TUE', '0800', '0900');
+values ('2110422', '2/2017', '2', 'EN100', '405', 'TUE', '08:00:00', '09:00:00');
 
 update Grade set Grade = 3.50
 where SID = '5830000021' and CID = '2110422' and Semester = '2/2017';
