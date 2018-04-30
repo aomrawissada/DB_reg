@@ -6,7 +6,7 @@ var pool = mysql.createPool({
     connectionLimit: 10, // default = 10
     host: 'localhost',
     user: 'root',
-    password: 'jinny1024',
+    password: 'jinny1024', // aomam16101986
     database: 'registra'
 });
 app.use(function(req, res, next) {
@@ -71,7 +71,7 @@ app.get('/withdraw1/:csid/:ccid/:semes1/:semes2', function (req, res) {
         const csid = req.params.csid;
 		const ccid = req.params.ccid;
 		const semes = "'"+req.params.semes1+"/"+req.params.semes2+"'";
-        con.query("UPDATE grade SET grade.WFlag=1 WHERE grade.SID=" + csid + " AND grade.CID="+ccid+ " AND grade.Semester="+semes, function (err, result, fields) {
+        con.query("UPDATE grade SET grade.WFlag=true WHERE grade.SID=" + csid + " AND grade.CID="+ccid+ " AND grade.Semester="+semes, function (err, result, fields) {
             con.release();
 
             if (err) throw err;
@@ -120,7 +120,7 @@ app.get('/addClass2/:csid/:ccid/:semes1/:semes2/:sect', function (req, res) {
 		const ccid = req.params.ccid;
 		const semes = "'"+req.params.semes1+"/"+req.params.semes2+"'";
 		const sect = req.params.sect;
-        con.query("INSERT INTO grade VALUES (" + csid + ", "+ccid+ ", "+semes+", 5, false);", function (err, result, fields) {
+        con.query("INSERT INTO grade VALUES (" + csid + ", "+ccid+ ", "+semes+", NULL, false);", function (err, result, fields) {
             con.release();
 
             if (err) throw err;

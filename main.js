@@ -421,9 +421,18 @@ fetch(url)
 				    node.innerHTML = courseID + " "+ myJson[i].CName;
 				    document.getElementById(elementID).appendChild(node);
 					node.id = courseID+elementID+1;
-				    node.innerHTML = "ภาคเรียนที่ "+myJson[i].Semester +" ผลการเรียน: "+myJson[i].Grade;
+					if(myJson[i].WFlag == true) {
+						node.innerHTML = "ภาคเรียนที่ "+myJson[i].Semester +" ผลการเรียน:  W";
+					}
+					else {
+						if(myJson[i].Grade == null) {
+							node.innerHTML = "ภาคเรียนที่ "+myJson[i].Semester +" ผลการเรียน:  X";
+						}
+						else {
+							node.innerHTML = "ภาคเรียนที่ "+myJson[i].Semester +" ผลการเรียน:  "+myJson[i].Grade;
+						}
+					}
 				    document.getElementById(elementID).appendChild(node);
-				 
 				}
 			}
 		})					
@@ -616,7 +625,7 @@ fetch(url)
 				btn5.innerHTML = ""+ myJson[i].Name + " "+ myJson[i].Surname;
 				var btn6 =document.createElement("button");
                 btn6.className = "button1"; 
-				if(grade == 5) {
+				if(grade == null) {
 					btn6.innerHTML = 'X';
 				}
 				else {
@@ -654,7 +663,7 @@ fetch(url)
 		//alert(""+r_left+" "+r_top);
 		
 		document.getElementById("grade1").style.visibility = "visible";
-		if(grade == 5) {
+		if(grade == null) {
 			document.getElementById("grade1").value = "";
 		}
 		else {
@@ -787,7 +796,7 @@ fetch(url)
 					document.getElementById(elementID).appendChild(node);
 					var node2 = document.createElement("LI");
 					node2.id = courseID+elementID+1;
-					if(myJson[i].Grade==5) {
+					if(myJson[i].Grade==null) {
 						node2.innerHTML = "ภาคเรียนที่ "+myJson[i].Semester +" ผลการเรียน: X";
 					}
 					else {
