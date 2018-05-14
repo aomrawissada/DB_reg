@@ -185,7 +185,6 @@ create trigger ins_grade_trigger after insert on Enroll
     insert into Grade(SID, CID, Semester, Grade, WFlag)
 	values (new.SID, new.CID, new.Semester, null, false);
 
-
 drop table if exists Teach;
 create table Teach (
 	TID varchar(10) not null,
